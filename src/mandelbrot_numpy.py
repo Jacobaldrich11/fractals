@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
-PIXEL_DENSITY = 512
+PIXEL_DENSITY = 3000
 
 
 def complex_matrix(xmin, xmax, ymin, ymax, pixel_density):
@@ -25,4 +26,7 @@ plt.axis("off")
 plt.tight_layout()
 
 name = f"imgs/mandelbrot_{str(colormap)}_{PIXEL_DENSITY}"
-plt.savefig(name, dpi=200)
+name = os.path.join(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..")), name
+)
+plt.savefig(name, dpi=400)
